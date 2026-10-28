@@ -1,0 +1,233 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SBI SmartBank | Banking System</title>
+  <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+  <section id="loginPage" class="login-layout">
+    <div class="login-art">
+      <div class="sbi-brand">
+        <div class="sbi-logo"><span></span></div>
+        <div>
+          <h2>STATE BANK OF INDIA</h2>
+          <p>SMARTBANK DEMO</p>
+        </div>
+      </div>
+
+      <div class="hero-copy">
+        <span class="eyebrow">DIGITAL BANKING EXPERIENCE</span>
+        <h1>Your money.<br>Your future.<br><span>Your control.</span></h1>
+        <p>A student banking project featuring customer management,
+          account dashboards and role-based access.</p>
+      </div>
+
+      <div class="art-bottom">SECURE LEARNING ENVIRONMENT · DEMO ONLY</div>
+    </div>
+
+    <div class="login-side">
+      <form id="loginForm" class="login-card">
+        <div class="mobile-brand">SBI SMARTBANK</div>
+        <span class="eyebrow">WELCOME BACK</span>
+        <h2>Sign in to continue</h2>
+        <p class="muted">Choose your account type and enter your credentials.</p>
+
+        <label for="role">Login as</label>
+        <select id="role" required>
+          <option value="user">Customer / User</option>
+          <option value="admin">Administrator</option>
+        </select>
+
+        <label for="username">Username</label>
+        <input id="username" autocomplete="username"
+          placeholder="Enter username" required>
+
+        <label for="password">Password</label>
+        <input id="password" type="password"
+          autocomplete="current-password"
+          placeholder="Enter password" required>
+
+        <p id="loginError" class="error" role="alert"></p>
+        <button class="btn primary full" type="submit">Sign In →</button>
+
+        
+      </form>
+    </div>
+  </section>
+
+  <section id="appPage" hidden>
+    <aside class="sidebar">
+      <div class="side-brand">
+        <div class="sbi-logo"><span></span></div>
+        <div><strong>SBI SMARTBANK</strong><small>Banking dashboard</small></div>
+      </div>
+
+      <p class="nav-heading">WORKSPACE</p>
+      <a href="#dashboard" class="nav-link active">▦ &nbsp; Dashboard</a>
+      <a href="#management" id="manageNav" class="nav-link">♙ &nbsp; Customers</a>
+      <a href="#customerFormSection" id="newNav" class="nav-link">＋ &nbsp; New Account</a>
+
+      <div class="side-footer">
+        <div class="avatar">S</div>
+        <div class="profile-text">
+          <strong id="sideName">Bank User</strong>
+          <small id="sideRole">Customer</small>
+        </div>
+        <button id="logoutBtn" class="logout-btn" title="Sign out">↗</button>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">STATE BANK OF INDIA / DIGITAL</p>
+          <h1 id="welcomeTitle">Dashboard</h1>
+          <p class="muted" id="welcomeText">Your banking workspace.</p>
+        </div>
+        <div class="top-actions">
+          <span class="role-chip" id="roleChip">USER</span>
+          <button id="topLogout" class="btn outline">Sign Out</button>
+        </div>
+      </header>
+
+      <section id="dashboard" class="stats">
+        <article class="stat-card">
+          <div class="stat-top"><span>Total Customers</span><span>♙</span></div>
+          <h2 id="totalCustomers">0</h2>
+          <p>Registered demo accounts</p>
+        </article>
+        <article class="stat-card">
+          <div class="stat-top"><span>Total Deposits</span><span>₹</span></div>
+          <h2 id="totalBalance">₹0</h2>
+          <p>Combined demo balances</p>
+        </article>
+        <article class="stat-card">
+          <div class="stat-top"><span>Account Type</span><span>▤</span></div>
+          <h2 id="accountTypes">0</h2>
+          <p>Types represented</p>
+        </article>
+      </section>
+
+      <section id="personalAccount" class="panel" hidden>
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">MY BANK ACCOUNT</p>
+            <h2>Account overview</h2>
+          </div>
+          <span class="status-pill">Demo account</span>
+        </div>
+        <div class="account-hero">
+          <div>
+            <p>AVAILABLE DEMO BALANCE</p>
+            <h2 id="myBalance">₹0.00</h2>
+            <p id="myAccountNumber">Account number</p>
+          </div>
+          <div class="account-symbol">SBI</div>
+        </div>
+        <div class="personal-grid">
+          <div><small>Customer name</small><strong id="myName">—</strong></div>
+          <div><small>Email</small><strong id="myEmail">—</strong></div>
+          <div><small>Phone</small><strong id="myPhone">—</strong></div>
+          <div><small>Account type</small><strong id="myType">—</strong></div>
+        </div>
+        <p class="muted note">This learning demo does not support real transfers or payments.</p>
+      </section>
+
+      <section id="customerFormSection" class="panel" hidden>
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">ACCOUNT OPERATIONS</p>
+            <h2 id="formTitle">Create Customer</h2>
+          </div>
+          <span class="status-pill" id="formMode">CREATE</span>
+        </div>
+
+        <form id="customerForm">
+          <input type="hidden" id="customerId">
+          <div class="form-grid">
+            <label>Full name
+              <input id="name" maxlength="80" required placeholder="Customer full name">
+            </label>
+            <label>Account number
+              <input id="accountNumber" maxlength="30" required placeholder="SBI-DEMO-1002">
+            </label>
+            <label>Email
+              <input id="email" type="email" maxlength="120" required placeholder="customer@example.com">
+            </label>
+            <label>Phone
+              <input id="phone" type="tel" maxlength="20" required placeholder="Phone number">
+            </label>
+            <label>Account type
+              <select id="accountType">
+                <option>Savings</option>
+                <option>Current</option>
+                <option>Fixed Deposit</option>
+              </select>
+            </label>
+            <label>Demo balance (₹)
+              <input id="balance" type="number" min="0" max="1000000000"
+                step="0.01" required placeholder="0.00">
+            </label>
+            <label>Login username
+              <input id="loginUsername" maxlength="40" required placeholder="Unique customer username">
+            </label>
+            <label>Login password
+              <input id="loginPassword" type="password" minlength="6"
+                maxlength="100" placeholder="Set password for new customer">
+            </label>
+          </div>
+          <p class="muted note">For this demo only, customer login credentials are stored in browser storage. Never use real passwords.</p>
+          <div class="form-actions">
+            <button type="button" id="cancelBtn" class="btn outline" hidden>Cancel</button>
+            <button type="submit" id="saveBtn" class="btn primary">Create Customer</button>
+          </div>
+        </form>
+      </section>
+
+      <section id="management" class="panel" hidden>
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">CUSTOMER DATABASE</p>
+            <h2 id="directoryTitle">Customer Directory</h2>
+          </div>
+          <span class="count-chip" id="recordCount">0 records</span>
+        </div>
+
+        <div class="toolbar">
+          <input id="searchInput" type="search" placeholder="Search customers...">
+          <select id="filterType" aria-label="Filter accounts">
+            <option value="All">All types</option>
+            <option>Savings</option>
+            <option>Current</option>
+            <option>Fixed Deposit</option>
+          </select>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>CUSTOMER</th>
+                <th>ACCOUNT NUMBER</th>
+                <th>TYPE</th>
+                <th>BALANCE</th>
+                <th id="actionHeader">ACTIONS</th>
+              </tr>
+            </thead>
+            <tbody id="customerTable"></tbody>
+          </table>
+        </div>
+        <p id="emptyMessage" class="empty">No customer records found.</p>
+      </section>
+
+      <footer>SBI SmartBank student project · Simulated data only · Not an official SBI service</footer>
+    </main>
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  </section>
+
+  <script src="script1.js"></script>
+</body>
+</html>
